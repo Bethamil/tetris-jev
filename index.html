@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jev Tetris</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect fill='%232ec4b6' x='1' y='6' width='14' height='4' rx='1'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Outfit:wght@380;520;640&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/client/style.css" />
+  </head>
+  <body>
+    <div class="lamp" aria-hidden="true"></div>
+    <main class="layout">
+      <header class="top">
+        <p class="mark">Jev <span>plays Tetris</span></p>
+        <p class="status" id="status" aria-live="polite">Jev is waiting.</p>
+      </header>
+      <section class="well-wrap">
+        <canvas id="well" width="300" height="660" aria-hidden="true"></canvas>
+      </section>
+      <aside class="panel">
+        <div class="stats">
+          <p><span id="score">0</span><small>Score</small></p>
+          <p><span id="lines">0</span><small>Lines</small></p>
+          <p><span id="level">1</span><small>Level</small></p>
+        </div>
+        <div class="queues">
+          <div>
+            <h2>Hold</h2>
+            <div id="hold" class="mini"></div>
+          </div>
+          <div>
+            <h2>Next</h2>
+            <div id="next" class="minis"></div>
+          </div>
+        </div>
+        <section class="judgment" id="judgment" aria-live="polite">
+          <h2>Choice</h2>
+          <p id="move" class="move">The first piece is ready.</p>
+          <div class="meter" aria-hidden="true"><span id="conf-bar"></span></div>
+          <p id="conf-label" class="meta">Confidence</p>
+          <p id="pressure" class="meta">Board: open</p>
+          <p id="model" class="meta model"></p>
+          <ol id="alts"></ol>
+        </section>
+        <div class="actions">
+          <button id="start" class="primary" type="button">Let Jev play</button>
+          <button id="pause" class="ghost" type="button" disabled>Pause</button>
+          <button id="restart" class="ghost" type="button">Restart</button>
+        </div>
+        <p id="error" class="error"></p>
+        <p class="hint">Jev chooses every move. The keyboard does not play.</p>
+      </aside>
+    </main>
+    <script type="module" src="/src/client/main.ts"></script>
+  </body>
+</html>
